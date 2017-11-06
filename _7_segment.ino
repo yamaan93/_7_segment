@@ -1,14 +1,16 @@
-int top =  10;
-int topRight =11;
-int topLeft=9;
-int middle = 8;
-int bottomRight =6;
-int bottom = 5;
-int bottomLeft = 4;
-int up =3;
-int down =4;
-int array screen[DIM_0_0] [DIM_1_11] = {
-  {
+int A = 2;
+int B = 3;
+int C = 4;
+int D = 5;
+int E = 6;
+int F = 7;
+int G = 8;
+int DP = 9;
+int [][] 7-state ={
+                    
+  
+}
+
   
 }
 
@@ -22,6 +24,10 @@ void setup() {
 }
 
 void loop() {
+  int number = 0;
+  switch (number){
+
+    case 0: 
   
 }
   
