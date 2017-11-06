@@ -7,20 +7,24 @@ int F = 7;
 int G = 8;
 int DP = 9;
 int []segment{A, B, C, D, E, F, G, DP}
-int [][] 7 - state = {
-  {A, F, G, E, D}
-  {F, E, -1, -1, -1}
-  {A,B,G,E,D}
-  {
-  
+// Declare 2D array
+int[][] segment = new int[][]{
 
-
-
-
+  {A, F, G, E, D,-1,-1}
+  {A,B,C,D,E,F,-1}
+  {F, E, -1, -1, -1,-1,-1}
+  {A,B,G,E,D,-1,-1}
+  {A,B,G,C,D,-1,-1}
+  {F,G,B,C,-1,-1,1}
+  {A,F,G,C,D,-1,-1}
+  {A,F,E,D,C,G.-1}
+  {A,B,C,-1,-1,-1,-1}
+  {A,B,C,D,E,F,G,}
+  {A,B,G,F,C,-1,-1}
+  {A, F, G, E, D,-1,-1}
 }
 
 
-}
 
 
 void setup() {
@@ -32,10 +36,11 @@ void setup() {
 }
 
 void loop() {
-  int number = 0;
+  int number = -1;
   switch (number) {
 
-    case 0:
+    case -1: 
+      
 
   }
 
