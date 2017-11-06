@@ -1,3 +1,4 @@
+
 int A = 2;
 int B = 3;
 int C = 4;
@@ -6,9 +7,23 @@ int E = 6;
 int F = 7;
 int G = 8;
 int DP = 9;
-int []segment{A, B, C, D, E, F, G, DP}
+unsigned int []segment{A, B, C, D, E, F, G, DP}
 // Declare 2D array
-int[][] segment = new int[][]{
+
+
+
+
+
+void setup() {
+  for (int i = 4; i < 12; i++) {
+    pinMode(i, OUTPUT);
+  }
+  pinMode(3, INPUT);
+  pinMode(4, INPUT);
+}
+
+void loop() {
+unsigned int[7][7] segment{
 
   {A, F, G, E, D,-1,-1}
   {A,B,C,D,E,F,-1}
@@ -23,23 +38,11 @@ int[][] segment = new int[][]{
   {A,B,G,F,C,-1,-1}
   {A, F, G, E, D,-1,-1}
 }
-
-
-
-
-void setup() {
-  for (int i = 4; i < 12; i++) {
-    pinMode(i, OUTPUT);
-  }
-  pinMode(3, INPUT);
-  pinMode(4, INPUT);
 }
-
-void loop() {
   int number = -1;
   switch (number) {
 
-    case -1: 
+    case -1: digitalWrite([1][j]},1);
       
 
   }
