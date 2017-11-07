@@ -7,7 +7,7 @@ int E = 6;
 int F = 7;
 int G = 8;
 int DP = 9;
-int segment [] {A, B, C, D, E, F, G, DP};
+int test [] {A, B, C, D, E, F, G, DP};
 // Declare 2D array
 
 
@@ -23,7 +23,9 @@ void setup() {
 }
 
 void loop() {
-  int segment [][7] ={
+
+ // digitalWrite(test[], 1);
+  int segment [][7] = {
 
     {A, F, G, E, D, -1, -1},
     {A, B, C, D, E, F, -1},
@@ -38,16 +40,16 @@ void loop() {
     {A, B, G, F, C, -1, -1},
     {A, F, G, E, D, -1, -1}
   };
-  
 
+int j =0;
+  for (j = 0; j < 7; j++) {
 
+    digitalWrite(segment[1][j], 1);
 
-    digitalWrite(segment[1],1);
-    
-
- 
 
 
   }
+
+}
 
 
