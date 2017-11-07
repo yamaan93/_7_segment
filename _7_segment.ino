@@ -7,7 +7,7 @@ Program has a 7 segment dispay for displaying digits. also has
 Programmed by: Yamaan Bakir
 **** Version 3 added Push Button Inputs ****
 */
-*****************************************************************************
+//*****************************************************************************
         
 int A = 2;
 int B = 3;
@@ -52,16 +52,19 @@ void loop() {
     {A, B, G, F, C, -1, -1},
     {A, F, G, E, D, -1, -1}
   };
-
-int j =0;
+  int j =0;
   for (j = 0; j < 7; j++) {
 
-    digitalWrite(segment[6][j], 1);
+   
+ 
+int counter=3;
+ switch (counter){
+  case 3: digitalWrite(segment[counter][j], 1);
+  break;
+ }
 
 
-
-  }
-
+}
 }
 
 
