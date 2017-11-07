@@ -1,4 +1,14 @@
+/*
+7 segment source code
+Program Release Date: November 13, 2017
+Program has a 7 segment dispay for displaying digits. also has 
+2 pushbuttons, 1 for increasing the number, and the other for decreasing
 
+Programmed by: Yamaan Bakir
+**** Version 3 added Push Button Inputs ****
+*/
+*****************************************************************************
+            // variables
 int A = 2;
 int B = 3;
 int C = 4;
@@ -7,17 +17,19 @@ int E = 6;
 int F = 7;
 int G = 8;
 int DP = 9;
-int test [] {A, B, C, D, E, F, G, DP};
-// Declare 2D array
+int test [] {A, B, C, D, E, F, G, DP};// array that should turn on all lights
+
 
 
 
 
 
 void setup() {
+  // setting up pins as outputs
   for (int i = 4; i < 12; i++) {
     pinMode(i, OUTPUT);
   }
+  // setting up pins as inputs
   pinMode(3, INPUT);
   pinMode(4, INPUT);
 }
