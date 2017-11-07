@@ -46,18 +46,18 @@ void loop() {
   Serial.println(counter);
   int segment [][7] = {// a 2d array for changing which lights are on and off
 
-    {A, F, G, E, D, -1, -1},
-    {A, B, C, D, E, F, -1},
-    {F, E, -1, -1, -1, -1, -1},
-    {A, B, G, E, D, -1, -1},
-    {A, B, G, C, D, -1, -1},
-    {F, G, B, C, -1, -1, -1},
-    {A, F, G, C, D, -1, -1},
-    {A, F, E, D, C, G, -1},
-    {A, B, C, -1, -1, -1, -1},
-    {A, B, C, D, E, F, G,},
-    {A, B, G, F, C, -1, -1},
-    {A, F, G, E, D, -1, -1}
+    {A, F, G, E, D, -1, -1},// E
+    {A, B, C, D, E, F, -1},// 0
+    {F, E, -1, -1, -1, -1, -1},//1
+    {A, B, G, E, D, -1, -1},//2
+    {A, B, G, C, D, -1, -1},//3
+    {F, G, B, C, -1, -1, -1},//4
+    {A, F, G, C, D, -1, -1},//5
+    {A, F, E, D, C, G, -1},//6
+    {A, B, C, -1, -1, -1, -1},//7
+    {A, B, C, D, E, F, G,},//8
+    {A, B, G, F, C, -1, -1},//9
+    {A, F, G, E, D, -1, -1}//E
   };
 
   //buttonstate1 = digitalRead(pb1);
