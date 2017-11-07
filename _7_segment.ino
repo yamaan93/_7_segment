@@ -41,12 +41,13 @@ void loop() {
   
 
 
-  int number = -1;
-  switch (number) {
+
+    digitalWrite(segment[1],1);
+    
 
  
 
 
   }
-}
+
 
