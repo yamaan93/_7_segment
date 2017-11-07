@@ -60,8 +60,11 @@ void loop() {
     {A, F, G, E, D, -1, -1}
   };
  
-  buttonstate1 = digitalRead(pb1);
-  buttonstate0 = digitalRead(pb0);
+  //buttonstate1 = digitalRead(pb1);
+ // buttonstate0 = digitalRead(pb0);
+ if (digitalRead(pb1==HIGH)){
+  counter++;
+ }
   int j = 0;
   for (j = 0; j < 7; j++) {
 
