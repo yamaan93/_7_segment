@@ -22,6 +22,8 @@ int pb0 = 11;
 int counter = 0;
 int timmer = millis(); 
 int debounce = 150;
+ int buttonstate1 = 0;
+  int buttonstate0 = 0;
 int test [] {A, B, C, D, E, F, G, DP};// array that should turn on all lights
 
 
@@ -41,7 +43,7 @@ void setup() {
 }
 
 void loop() {
-    Serial.println(pb1);
+    Serial.println(buttonstate0);
   int segment [][7] = {// a 2d array for 
 
     {A, F, G, E, D, -1, -1},
@@ -57,16 +59,19 @@ void loop() {
     {A, B, G, F, C, -1, -1},
     {A, F, G, E, D, -1, -1}
   };
+ 
+  buttonstate1 = digitalRead(pb1);
+  buttonstate0 = digitalRead(pb0);
   int j = 0;
   for (j = 0; j < 7; j++) {
 
-    if( digitalRead(pb1)==1){
-      if ( (millis() - timmer) > (debounce)){
+    if( buttonstate0==1){
+      
         counter++; 
         
       }
       
-    }
+    
 
     
   switch (counter) {
