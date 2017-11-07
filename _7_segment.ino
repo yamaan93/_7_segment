@@ -43,7 +43,7 @@ void setup() {
 }
 
 void loop() {
-    Serial.println(buttonstate0);
+    Serial.println(counter);
   int segment [][7] = {// a 2d array for 
 
     {A, F, G, E, D, -1, -1},
@@ -67,7 +67,7 @@ void loop() {
 
     if( buttonstate0==1){
       
-        counter++; 
+        counter+1; 
         
       }
       
