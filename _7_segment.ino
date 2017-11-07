@@ -8,7 +8,7 @@ Programmed by: Yamaan Bakir
 **** Version 3 added Push Button Inputs ****
 */
 *****************************************************************************
-            // variables
+        
 int A = 2;
 int B = 3;
 int C = 4;
@@ -26,12 +26,12 @@ int test [] {A, B, C, D, E, F, G, DP};// array that should turn on all lights
 
 void setup() {
   // setting up pins as outputs
-  for (int i = 4; i < 12; i++) {
+  for (int i = 2; i < 12; i++) {
     pinMode(i, OUTPUT);
   }
   // setting up pins as inputs
-  pinMode(3, INPUT);
-  pinMode(4, INPUT);
+  pinMode(10, INPUT);
+  pinMode(11, INPUT);
 }
 
 void loop() {
