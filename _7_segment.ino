@@ -44,7 +44,7 @@ void loop() {
 int j =0;
   for (j = 0; j < 7; j++) {
 
-    digitalWrite(segment[1][j], 1);
+    digitalWrite(segment[6][j], 1);
 
 
 
