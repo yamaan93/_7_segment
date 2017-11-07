@@ -74,30 +74,9 @@ void loop() {
     
 
     
-  switch (counter) {
-        case 0: digitalWrite(segment[counter][j], 1);
-        break;
-        case 1: digitalWrite(segment[counter][j], 1);
-        break;
-        case 2: digitalWrite(segment[counter][j], 1);
-        break;
-        case 3: digitalWrite(segment[counter][j], 1);
-        break;
-        case 4: digitalWrite(segment[counter][j], 1);
-        break;
-        case 5: digitalWrite(segment[counter][j], 1);
-        break;
-        case 6: digitalWrite(segment[counter][j], 1);
-        break;
-        case 7: digitalWrite(segment[counter][j], 1);
-        break;
-        case 8: digitalWrite(segment[counter][j], 1);
-        break;
-        case 9: digitalWrite(segment[counter][j], 1);
-        break;
-        case 10: digitalWrite(segment[counter][j], 1);
-        break;        
-    }
+  digitalWrite(segment[counter][j], 1);
+       
+
 
 
   }
