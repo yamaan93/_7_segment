@@ -44,7 +44,7 @@ void setup() {
 
 void loop() {
     Serial.println(counter);
-  int segment [][7] = {// a 2d array for 
+  int segment [][7] = {// a 2d array for changing which lights are on and off
 
     {A, F, G, E, D, -1, -1},
     {A, B, C, D, E, F, -1},
