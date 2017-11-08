@@ -8,7 +8,7 @@
 **** Version 4 is the final version ****
 */
 //*****************************************************************************
-
+                                                                  //variables
 int A = 2;// what pins go to which segment
 int B = 3;
 int C = 4;
@@ -19,8 +19,7 @@ int G = 8;
 int DP = 9;
 int pb1 = 10;
 int pb0 = 11;
-int counter = 0;
-unsigned long timmer = millis();
+int counter = 0;//  what row in the array should be called, for turning on segments
 int debounceDelay = 200;
 int buttonState;// the current reading from the input pin
 int buttonState0;
@@ -29,7 +28,7 @@ int lasButtonState0 = 0; // the previous reading from the input pin
 unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled
 int i = 0;
 
-int test [] {A, B, C, D, E, F, G, DP};// array that should turn on all lights
+int test [] {A, B, C, D, E, F, G, DP};// array that should turn on/off all lights
 
 
 
@@ -38,7 +37,6 @@ int test [] {A, B, C, D, E, F, G, DP};// array that should turn on all lights
 
 void setup() {
 
-  Serial.begin(9600);
   // setting up pins as outputs
   for (int i = 2; i < 12; i++) {
     pinMode(i, OUTPUT);
@@ -47,7 +45,9 @@ void setup() {
   pinMode(10, INPUT);
   pinMode(11, INPUT);
 }
-void screen() {
+//***********************************************************************************************************
+                                                                                            //screen control
+void screen() {//function for controling the screen instead of having it clog up the loop
   int segment [][7] = {// a 2d array for changing which lights are on and off
 
     {A, F, G, E, D, -1, -1},// E
@@ -73,8 +73,9 @@ void loop() {
 
   screen();
   // read the state of the switch into a local variable:
+  //**********************************************************************************************************
+                                                                                                 //button1
   int reading = digitalRead(pb1);
-
   // check to see if you just pressed the button
   // (i.e. the input went from LOW to HIGH), and you've waited long enough
   // since the last press to ignore any noise:
@@ -102,6 +103,8 @@ void loop() {
       }
     }
   }
+  //*******************************************************************************************************
+                                                                                        //button2
   int reading0 = digitalRead(pb0);
 
   // check to see if you just pressed the button
