@@ -21,8 +21,12 @@ int pb1 = 10;
 int pb0 = 11;
 int counter = 0;
 unsigned long timmer = millis();
-int debounce = 150;
-
+int debounceDelay = 200;
+int buttonState;
+int buttonState0;
+int lastButtonState=0;// the previous reading from the input pin
+int lasButtonState0=0;// the previous reading from the input pin
+unsigned long lastDebounceTime = 0;  // the last time the output pin was toggled
 int i = 0;
 
 int test [] {A, B, C, D, E, F, G, DP};// array that should turn on all lights
@@ -66,36 +70,75 @@ void screen() {
   }
 }
 void loop() {
-  Serial.println(counter);
-  int reading1 =digitalRead(pb1);
-  int reading0 =digitalRead(pb0);
+ 
+  screen();
+   // read the state of the switch into a local variable:
+  int reading = digitalRead(pb1);
+ 
+  // check to see if you just pressed the button
+  // (i.e. the input went from LOW to HIGH), and you've waited long enough
+  // since the last press to ignore any noise:
 
-  //buttonstate1 = digitalRead(pb1);
-  // buttonstate0 = digitalRead(pb0);
-
-  if (digitalRead(pb1) == HIGH) {
+  // If the switch changed, due to noise or pressing:
+  if (reading != lastButtonState) {
+    // reset the debouncing timer
+    lastDebounceTime = millis();
+  }
+Serial.print(lastDebounceTime);
+  if ((millis() - lastDebounceTime) < debounceDelay) {
     
-    if (millis - timmer > debounce) {
-      int lastread1 =
-        int i = 0;
-      for (i = 0; i < 7; i++) {
-        digitalWrite(test[i], 0);
-      }
-      counter = (counter + 1) % 10;
-      screen();
-    }
-  }
-  if (digitalRead(pb0) == HIGH) {
+    // whatever the reading is at, it's been there for longer than the debounce
+    // delay, so take it as the actual current state:
 
-    if (counter > 0) {
-      int i = 0;
-      for (i = 0; i < 7; i++) {
-        digitalWrite(test[i], 0);
+    // if the button state has changed:
+    if (reading != buttonState) {
+      buttonState = reading;
+
+      // only toggle the LED if the new button state is HIGH
+      if (buttonState == HIGH) {
+        for(i = 0; i <8;i++){
+          digitalWrite(test[i],0);
+        }
+        counter = (counter+1)%11;
       }
-      counter = (counter - 1) ;
-      screen();
     }
   }
+  int reading0 = digitalRead(pb0);
+ 
+  // check to see if you just pressed the button
+  // (i.e. the input went from LOW to HIGH), and you've waited long enough
+  // since the last press to ignore any noise:
+
+  // If the switch changed, due to noise or pressing:
+  if (reading0 != lasButtonState0) {
+    // reset the debouncing timer
+    lastDebounceTime = millis();
+  }
+
+  if ((millis() - lastDebounceTime) < debounceDelay) {
+    
+    // whatever the reading is at, it's been there for longer than the debounce
+    // delay, so take it as the actual current state:
+
+    // if the button state has changed:
+    if (reading0 != buttonState0) {
+      buttonState0 = reading0;
+
+      // only toggle the LED if the new button state is HIGH
+      if (buttonState0 == HIGH) {
+        for(i = 0; i <8;i++){
+          digitalWrite(test[i],0);
+        }
+        if(counter>0){
+        counter = (counter-1);
+        }
+        else if(counter <1){
+          counter = 10;
+        }
+      }
+    }
+  }
+
 
 
 }
