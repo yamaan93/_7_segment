@@ -62,8 +62,14 @@ void loop() {
 
   //buttonstate1 = digitalRead(pb1);
   // buttonstate0 = digitalRead(pb0);
-  if (digitalRead(pb1 == HIGH)) {
-    counter++;
+  
+  if (digitalRead(pb1) == HIGH){
+    counter = (counter + 1) % 10;
+    
+  }
+   
+  if (digitalRead(pb0) == HIGH){
+    counter = (counter - 1) % 0;
   }
   int j = 0;
   for (j = 0; j < 7; j++) {
