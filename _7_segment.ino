@@ -20,12 +20,11 @@ int DP = 9;
 int pb1 = 10;
 int pb0 = 11;
 int counter = 0;
-int timmer = millis();
+unsigned long timmer = millis();
 int debounce = 150;
-int buttonstate1 = 0;
-int buttonstate0 = 0;
+
 int i = 0;
-  
+
 int test [] {A, B, C, D, E, F, G, DP};// array that should turn on all lights
 
 
@@ -34,7 +33,7 @@ int test [] {A, B, C, D, E, F, G, DP};// array that should turn on all lights
 
 
 void setup() {
-  
+
   Serial.begin(9600);
   // setting up pins as outputs
   for (int i = 2; i < 12; i++) {
@@ -44,8 +43,8 @@ void setup() {
   pinMode(10, INPUT);
   pinMode(11, INPUT);
 }
-void screen(){
-   int segment [][7] = {// a 2d array for changing which lights are on and off
+void screen() {
+  int segment [][7] = {// a 2d array for changing which lights are on and off
 
     {A, F, G, E, D, -1, -1},// E
     {A, B, C, D, E, F, -1},// 0
@@ -58,9 +57,9 @@ void screen(){
     {A, B, C, -1, -1, -1, -1},//7
     {A, B, C, D, E, F, G,},//8
     {A, B, G, F, C, -1, -1},//9
-    
+
   };
-    int j = 0;
+  int j = 0;
   for (j = 0; j < 7; j++) {
     digitalWrite(segment[counter][j], 1);
 
@@ -68,32 +67,37 @@ void screen(){
 }
 void loop() {
   Serial.println(counter);
- 
+  int reading1 =digitalRead(pb1);
+  int reading0 =digitalRead(pb0);
 
   //buttonstate1 = digitalRead(pb1);
   // buttonstate0 = digitalRead(pb0);
-  
-  if (digitalRead(pb1) == HIGH){
-    int i = 0;
-  for (i = 0; i < 7; i++) {
-     digitalWrite(test[i],0);
+
+  if (digitalRead(pb1) == HIGH) {
+    
+    if (millis - timmer > debounce) {
+      int lastread1 =
+        int i = 0;
+      for (i = 0; i < 7; i++) {
+        digitalWrite(test[i], 0);
+      }
+      counter = (counter + 1) % 10;
+      screen();
+    }
   }
-   counter = (counter + 1) % 10;
-   screen();
-  }
-   
-  if (digitalRead(pb0) == HIGH){
-    if(counter >0){
-          int i = 0;
-  for (i = 0; i < 7; i++) {
-     digitalWrite(test[i],0);
-  }
-    counter = (counter - 1) ;
-    screen();
+  if (digitalRead(pb0) == HIGH) {
+
+    if (counter > 0) {
+      int i = 0;
+      for (i = 0; i < 7; i++) {
+        digitalWrite(test[i], 0);
+      }
+      counter = (counter - 1) ;
+      screen();
     }
   }
 
-  
+
 }
 
 
