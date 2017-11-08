@@ -24,6 +24,8 @@ int timmer = millis();
 int debounce = 150;
 int buttonstate1 = 0;
 int buttonstate0 = 0;
+int i = 0;
+  
 int test [] {A, B, C, D, E, F, G, DP};// array that should turn on all lights
 
 
@@ -32,6 +34,7 @@ int test [] {A, B, C, D, E, F, G, DP};// array that should turn on all lights
 
 
 void setup() {
+  
   Serial.begin(9600);
   // setting up pins as outputs
   for (int i = 2; i < 12; i++) {
@@ -41,10 +44,8 @@ void setup() {
   pinMode(10, INPUT);
   pinMode(11, INPUT);
 }
-
-void loop() {
-  Serial.println(counter);
-  int segment [][7] = {// a 2d array for changing which lights are on and off
+void screen(){
+   int segment [][7] = {// a 2d array for changing which lights are on and off
 
     {A, F, G, E, D, -1, -1},// E
     {A, B, C, D, E, F, -1},// 0
@@ -57,31 +58,44 @@ void loop() {
     {A, B, C, -1, -1, -1, -1},//7
     {A, B, C, D, E, F, G,},//8
     {A, B, G, F, C, -1, -1},//9
-    {A, F, G, E, D, -1, -1}//E
+    
   };
-
-  //buttonstate1 = digitalRead(pb1);
-  // buttonstate0 = digitalRead(pb0);
-  
-  if (digitalRead(pb1) == HIGH){
-    counter = (counter + 1) % 10;
-    segment;
-  }
-   
-  if (digitalRead(pb0) == HIGH){
-    counter = (counter - 1) % 0;
-    segment();
-  }
-
-  
-}
-
-void segment(){
     int j = 0;
   for (j = 0; j < 7; j++) {
     digitalWrite(segment[counter][j], 1);
 
   }
 }
+void loop() {
+  Serial.println(counter);
+ 
+
+  //buttonstate1 = digitalRead(pb1);
+  // buttonstate0 = digitalRead(pb0);
+  
+  if (digitalRead(pb1) == HIGH){
+    int i = 0;
+  for (i = 0; i < 7; i++) {
+     digitalWrite(test[i],0);
+  }
+   counter = (counter + 1) % 10;
+   screen();
+  }
+   
+  if (digitalRead(pb0) == HIGH){
+    if(counter >0){
+          int i = 0;
+  for (i = 0; i < 7; i++) {
+     digitalWrite(test[i],0);
+  }
+    counter = (counter - 1) ;
+    screen();
+    }
+  }
+
+  
+}
+
+
 
 
