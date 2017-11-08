@@ -65,24 +65,23 @@ void loop() {
   
   if (digitalRead(pb1) == HIGH){
     counter = (counter + 1) % 10;
-    
+    segment;
   }
    
   if (digitalRead(pb0) == HIGH){
     counter = (counter - 1) % 0;
+    segment();
   }
-  int j = 0;
+
+  
+}
+
+void segment(){
+    int j = 0;
   for (j = 0; j < 7; j++) {
     digitalWrite(segment[counter][j], 1);
 
-
-
   }
-  if( buttonstate0==1){
-      
-        counter+1; 
-        
-      }
 }
 
 
