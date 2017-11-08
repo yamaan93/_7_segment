@@ -5,7 +5,7 @@
   2 pushbuttons, 1 for increasing the number, and the other for decreasing
 
   Programmed by: Yamaan Bakir
-**** Version 4 is the final version ****
+**** Version 4.2 is the final version ****
 */
 //*****************************************************************************
                                                                   //variables
